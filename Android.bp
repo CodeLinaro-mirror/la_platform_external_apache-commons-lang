@@ -49,6 +49,7 @@ java_library {
     errorprone: {
         javacflags: [
             "-Xep:ReturnValueIgnored:WARN",
+            "-Xep:BoxedPrimitiveEquality:WARN",
         ],
     },
 }
