@@ -34,9 +34,16 @@ java_library {
     host_supported: true,
     srcs: ["src/main/java/**/*.java"],
     exclude_srcs: ["src/main/java/**/MethodInvokers.java"],
-    sdk_version: "current",
+    // TODO(b/47911117): Use "current" sdk_version once the bug id fixed.
+    sdk_version: "33",
     min_sdk_version: "33",
 
+    lint: {
+        warning_checks: [
+            // TODO(b/479111174): Remove this when http://b/479111174 is fixed.
+            "NewApi",
+        ],
+    },
     java_version: "1.8",
     apex_available: [
         "//apex_available:platform",
